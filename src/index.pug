@@ -75,29 +75,31 @@ html(lang="ru")
         .container
           .values__title
             h2.section-title.values__title-text Чем я могу быть полезен вам
-          .values__wrapper
-            .values__left
-              .values__image
-            .values__right
-              .values__desc
-                p Этот сайт я сделал в рамках обучения в Школе онлайн образования LoftSchool. Чуть позже я освежу в нём свой контент. А пока посмотрите, как тут всё классно и красиво!
-              ul.user-skills
-                - 
-                  var skills = [
-                    ['Front-end', ['html', 'css', 'js', 'jquery и vue.js']],
-                    ['Workflow', ['git', 'terminal', 'gulp', 'webpack']],
-                  ]
-                each item in skills 
-                  li.user-skills__item.skills-row 
-                    h3.section-title.skills-row__title #{item[0]}
-                    ul.skills-row__list
-                      each skill in item[1]
-                        li.skills-row__item
-                          .skill
-                            svg(viewBox="0 0 200 200" preserveAspectRatio="none").skill__shape
+        .values__wrapper
+          .values__left
+            .values__image
+          .values__right
+            .values__desc
+              p Этот сайт я сделал в рамках обучения в Школе онлайн образования LoftSchool. Чуть позже я освежу в нём свой контент. А пока посмотрите, как тут всё классно и красиво!
+            ul.user-skills
+              - 
+                var skills = [
+                  ['Front-end', ['HTML5', 'CSS3', 'Javascript', 'Jquery и vue.js']],
+                  ['Workflow', ['GIT', 'Terminal', 'Gulp', 'Webpack']],
+                ]
+              each item in skills 
+                li.user-skills__item.skills-row 
+                  h3.section-title.skills-row__title #{item[0]}
+                  ul.skills-row__list
+                    each skill in item[1]
+                      li.skills-row__item
+                        .skill
+                          .skill__shape
+                            .skill__title #{skill}
+                            //- svg(viewBox="0 0 200 200" preserveAspectRatio="none").skill__shape
                               circle(r="66" cx="100" cy="100").skill__circle.skill__circle--position--under
                               //- circle(r="65" cx="100" cy="100").skill__circle.skill__circle--position--above  
-                            .skill__title #{skill}
+                            
 
       .works
         h2.section-title Мои работы
