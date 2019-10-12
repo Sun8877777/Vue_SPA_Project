@@ -1,15 +1,141 @@
 include ./mixins.pug
 
 <!DOCTYPE html>
-html(lang="en")
+html(lang="ru")
   head
     meta(charset="UTF-8")
     meta(name="viewport", content="width=device-width, initial-scale=1.0")
     meta(http-equiv="X-UA-Compatible", content="ie=edge")
-    title Portfolio | main page
+    title Portfolio
   body
     .wrapper
-      .maincontent
-        +image('content/user.jpg', 'user-pic')
-        +icon('link', 'link-class')
-        .icon-bg
+      .welcome-section
+        section.hero
+          .container.hero__container
+            header.header.hero__header
+              .hero__logo
+                .logo ЧА
+              .hero__menu
+                nav.nav
+                  - var menu = ['Главная', "Обо мне", "Навыки", "Работы", "Отзывы", "Связаться"]
+                  ul.nav__list
+                    each item in menu
+                      li.nav__item
+                        a(href="").nav__link #{item}
+
+              .hero__links 
+                - var icons = ['insta', 'vk', 'github']
+                ul.socials
+                  each item, index in icons
+                    li.socials__item(class=`${index === 1 ? 'active' : ''}`)
+                      a(href="").socials__link
+                        +icon(`${item}`, 'socials__icon')
+
+            .hero__content
+              .user-info
+                h1.user-info__desc Личный сайт вэб разработчика
+                .user-info__username Черемисин Александр
+
+            .hero__btns
+              .scroll-down Скролл
+              .scroll-down__icon-wrap
+                +icon("scroll", "scroll-down__icon")
+
+        section.about
+          .container.about__container
+            .about__left
+              .user
+                .avatar.user__avatar
+                  +image("content/user.jpg", "avatar__pic")
+                ul.user__desc
+                  - 
+                    var items = [
+                      ['Проживаю', 'Санкт-Петербург'],
+                      ['Возраст', '31'],
+                      ['Родился', '30 июля 1988'],
+                    ]
+                  each item in items
+                    li.user__desc-item
+                      .user__key #{item[0]}
+                      .user__value #{item[1]}
+            .about__right
+              h4.about__prolog Привет, меня зовут
+              h2.about__title Черемисин Александр
+              .about__text Я занимаюсь разработкой современных сайтов и приложений. Мне нравится делать интересные и современные проекты.
+              .about__ps Этот сайт я сделал в рамках обучения в Школе онлайн образования LoftScool. Чуть позже я освежу в нём свой контент. А пока посмотрите как тут все классно и красиво!
+
+      .triangles
+        svg.triangles__item(viewBox="0 0 1000 110" preserveAspectRatio="none")
+          polygon(points="0,0 0,110 1000,110")
+        svg.triangles__item(viewBox="0 0 1000 110" preserveAspectRatio="none")
+          polygon(points="0,110 1000,110 1000,0")
+
+
+      section.values
+        .container
+          .values__title
+            h2.section-title.values__title-text Чем я могу быть полезен вам
+          .values__wrapper
+            .values__left
+              .values__image
+            .values__right
+              .values__desc
+                p Этот сайт я сделал в рамках обучения в Школе онлайн образования LoftSchool. Чуть позже я освежу в нём свой контент. А пока посмотрите, как тут всё классно и красиво!
+              ul.user-skills
+                - 
+                  var skills = [
+                    ['Front-end', ['html', 'css', 'js', 'jquery и vue.js']],
+                    ['Workflow', ['git', 'terminal', 'gulp', 'webpack']],
+                  ]
+                each item in skills 
+                  li.user-skills__item.skills-row 
+                    h3.section-title.skills-row__title #{item[0]}
+                    ul.skills-row__list
+                      each skill in item[1]
+                        li.skills-row__item
+                          .skill
+                            svg(viewBox="0 0 200 200" preserveAspectRatio="none").skill__shape
+                              circle(r="66" cx="100" cy="100").skill__circle.skill__circle--position--under
+                              //- circle(r="65" cx="100" cy="100").skill__circle.skill__circle--position--above  
+                            .skill__title #{skill}
+
+      .works
+        h2.section-title Мои работы
+        .works__left
+          .slider
+            img().slider__fillpic
+            .slider__preview
+              ul.previews
+                - for (var i = 0; i < 3; i++)
+                  li.previews__item
+                    img.previews__pic
+            .slider__buttons
+              .slider-button
+                button.slider-buttons__item.slider-buttons__item--slide--prev 
+                button.slider-buttons__item.slider-buttons__item--slide--next
+
+        .works__right
+          .works__tags
+            - var tags = ['html', 'css', 'javascript']
+            each tag in tags
+              ul.tags
+                li.tags__item #{tag}
+          .works__text
+            h3.works__title Сайт школы образования
+            .works__desc-text
+              p Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool! 2 месяца только самых тяжелых испытаний и бессонных ночей!
+            a.iconed-link
+              .iconed-link__icon
+              .iconed-link__text Посмотреть сайт
+      section.rewiews
+        .container
+          h2.section-title Что обо мне говорят
+          .rewiews__carusel.carusel
+            .carusel__wrapper
+              ul.carusel__list
+                - var caruselArr = [{name: 'Ковальчук Дмитрий', prof: 'Основатель loftschool', text: 'Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool! 4,5 месяца только самых тяжелых испытаний и бессонных ночей!'},                    {name: 'Владимир Сабанцев', prof: 'Преподаватель', text: 'Этот код выдержит любые испытания. Только пожалуйста, не загружайте сайт на слишком старых браузерах'}]
+                    
+                  li.carusel__item
+                    .carusel__item-wrap
+                      p.carusel__text=caruselArr[0].text
+                      p.carusel__text=caruselArr[0].text
