@@ -10,5 +10,6 @@
   "bg-color-gray": "#f3f5f9",
   "blue-color-link": "#586ed3",
   "white": "#ffffff",
-  "quote-color": "#dbe2ed"
+  "quote-color": "#dbe2ed",
+  "footer-bg-color": "#252830"
 }
