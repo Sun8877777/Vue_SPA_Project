@@ -4,5 +4,11 @@
   "bp-desktop-hd": "1800px",
   "bp-desktop": "1200px",
   "bp-tablets": "768px",
-  "bp-phones": "480px"
+  "bp-phones": "480px",
+  "works-active":"#dc9322",
+  "works-btn-bg": "#353e4e",
+  "bg-color-gray": "#f3f5f9",
+  "blue-color-link": "#586ed3",
+  "white": "#ffffff",
+  "quote-color": "#dbe2ed"
 }

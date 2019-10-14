@@ -94,50 +94,86 @@ html(lang="ru")
                     each skill in item[1]
                       li.skills-row__item
                         .skill
-                          .skill__shape
-                            .skill__title #{skill}
-                            //- svg(viewBox="0 0 200 200" preserveAspectRatio="none").skill__shape
-                              circle(r="66" cx="100" cy="100").skill__circle.skill__circle--position--under
-                              //- circle(r="65" cx="100" cy="100").skill__circle.skill__circle--position--above  
-                            
+                          .skill__shape                            
+                            svg(viewBox="0 0 100 100" style="fill: transparent;")
+                              circle(cx="50" cy="50" r="47" fill="transparent" stroke='#363636' stroke-width="3px")
+                              circle(cx="50" cy="50" r="47" stroke="url(#gradient)" transform="rotate(180 50 50)"  stroke-dasharray="251" :stroke-dashoffset="skill.percent" stroke-width="6px")
+                              linearGradient(id="gradient" x1="0%" y1="0%" x2="100%" y2="0")
+                                stop(offset="0%" stop-color='#5c10ec')
+                                stop(offset="100%" stop-color='#7500ea')
+                              .skill__title #{skill}                            
 
-      .works
-        h2.section-title Мои работы
-        .works__left
-          .slider
-            img().slider__fillpic
-            .slider__preview
-              ul.previews
-                - for (var i = 0; i < 3; i++)
-                  li.previews__item
-                    img.previews__pic
-            .slider__buttons
-              .slider-button
-                button.slider-buttons__item.slider-buttons__item--slide--prev 
-                button.slider-buttons__item.slider-buttons__item--slide--next
-
-        .works__right
-          .works__tags
-            - var tags = ['html', 'css', 'javascript']
-            each tag in tags
-              ul.tags
-                li.tags__item #{tag}
-          .works__text
-            h3.works__title Сайт школы образования
-            .works__desc-text
-              p Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool! 2 месяца только самых тяжелых испытаний и бессонных ночей!
-            a.iconed-link
-              .iconed-link__icon
-              .iconed-link__text Посмотреть сайт
-      section.rewiews
+      section.works
         .container
-          h2.section-title Что обо мне говорят
-          .rewiews__carusel.carusel
-            .carusel__wrapper
-              ul.carusel__list
-                - var caruselArr = [{name: 'Ковальчук Дмитрий', prof: 'Основатель loftschool', text: 'Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool! 4,5 месяца только самых тяжелых испытаний и бессонных ночей!'},                    {name: 'Владимир Сабанцев', prof: 'Преподаватель', text: 'Этот код выдержит любые испытания. Только пожалуйста, не загружайте сайт на слишком старых браузерах'}]
-                    
-                  li.carusel__item
-                    .carusel__item-wrap
-                      p.carusel__text=caruselArr[0].text
-                      p.carusel__text=caruselArr[0].text
+          h2.section-title.works__title Мои работы
+          .works__wrapper
+            .works__left
+              .slider
+                +image('content/preview_my_works.jpg', 'slider__fillpic')
+                .slider__preview
+                  ul.previews
+                    - var worksImages = ['content/my_works_min-1.jpg','content/my_works_min-2.jpg','content/my_works_min-3.jpg','content/my_works_min-4.jpg']
+                    - for (var i = 0; i < worksImages.length; i++)
+                      li.previews__item(class=`${i === 3 ? 'previews__item--active' : ''}`)
+                        a.previews__link
+                          +image(`${worksImages[i]}`, 'previews__pic')
+                .slider__buttons                  
+                  button.slider-buttons__item.slider-buttons__item--slide--prev >
+                  button.slider-buttons__item.slider-buttons__item--slide--next >
+
+            .works__right
+              .works__tags
+                - var tags = ['HTML', 'CSS', 'Javascript']          
+                  ul.works__tags-list 
+                    each tag in tags
+                      li.works__tags-item #{tag}
+              .works__text
+                h3.works__title-right Сайт школы образования
+                .works__desc-text
+                  p Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool! 2 месяца только самых тяжелых испытаний и бессонных ночей!
+                a.works__link
+                  +icon('link','works__link-icon')
+                  .works__link-text Посмотреть сайт
+        
+      .group-about-me
+        .triangles-down
+          svg.triangles-down__item(viewBox="0 0 1000 75" preserveAspectRatio="none")
+            polygon(points="0,0 1000,75 1000,-75")
+          svg.triangles-down__item(viewBox="0 0 1000 75" preserveAspectRatio="none")
+            polygon(points="0,75 0,0 1000,0")   
+        section.rewiews
+          .container
+            h2.section-title.rewiews__title Что обо мне говорят
+            .rewiews__carusel.carusel
+              .carusel__wrapper
+                ul.carusel__list
+                  - var caruselArr = [{name: 'Ковальчук Дмитрий', prof: 'Основатель Loftschool', avatar:'content/avatar_1.jpg', text: 'Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool! 4,5 месяца только самых тяжелых испытаний и бессонных ночей!'},                    {name: 'Владимир Сабанцев', prof: 'Преподаватель', avatar:'content/avatar_2.jpg', text: 'Этот код выдержит любые испытания. Только пожалуйста, не загружайте сайт на слишком старых браузерах'}]
+                  each key, index in caruselArr
+                    li.carusel__item
+                      .carusel__item-quote
+                        +icon('quote','carusel__item-icon')                      
+                      .carusel__item-wrap
+                        p.carusel__text=caruselArr[index].text
+                        .carusel__avtor-info
+                          .carusel__avatar-wrapper
+                            +image(`${caruselArr[index].avatar}`, 'carusel__avatar')
+                          .carusel__avtor-desc
+                            h4.carusel__avtor=caruselArr[index].name
+                            span.carusel__prof=caruselArr[index].prof
+
+                .carusel__buttons
+                  button.carusel__button.carusel__button-prev <
+                  button.carusel__button.carusel__button-next >
+          section.feedback
+            h2.section-title Связаться со мной
+            .feedback__form
+              form.main-form
+                label(for="feed-name") Введите ваше имя
+                  input(type="text", name="feed-name" id="feed-name"  placeholder="Ковальчук Дмитрий")
+                label(for="feed-email") Введите ваш email
+                  input(type="email", name="feed-email" id="feed-email" placeholder="loftschool@study.com")
+                label(for="feed-text")
+                  textarea(name="feed-text", id="feed-text") Требуется ваша помомощь в создании сайта. Интересуют сроки и цена вопроса
+                input(type="submit" id="feed-submit" value="Отправить")
+      footer.footer
+        .footer__wrapper
