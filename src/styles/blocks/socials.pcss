@@ -17,8 +17,17 @@
 
 .socials__icon {
   width: 28px;
-  height: 31px;
+  height: 28px;
   display: block;
+  transition: 500ms;
+
+  &:hover {
+    fill: $hvr-violet
+  }
+}
+
+.socials__link {
+  
 }
 
 .socials__link--footer {
@@ -26,10 +35,15 @@
   padding: 10px;
   border: 1px solid white;
   border-radius: 50%;
-
+  transition: 500ms;
+    &:hover {
+      background-color: $hvr-violet
+    }
   .socials__icon {
     fill: white;
     width: 28px;
     height: 28px;
+
+
   }
 }

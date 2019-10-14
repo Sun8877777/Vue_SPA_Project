@@ -97,7 +97,7 @@ html(lang="ru")
                           .skill__shape                            
                             svg(viewBox="0 0 100 100" style="fill: transparent;")
                               circle(cx="50" cy="50" r="47" fill="transparent" stroke='#363636' stroke-width="3px")
-                              circle(cx="50" cy="50" r="47" stroke="url(#gradient)" transform="rotate(180 50 50)"  stroke-dasharray="251" :stroke-dashoffset="skill.percent" stroke-width="6px")
+                              circle(cx="50" cy="50" r="47" stroke="url(#gradient)" transform="rotate(180 50 50)"  stroke-dasharray="251" :stroke-dashoffset="skill.percent" stroke-width="7px")
                               linearGradient(id="gradient" x1="0%" y1="0%" x2="100%" y2="0")
                                 stop(offset="0%" stop-color='#5c10ec')
                                 stop(offset="100%" stop-color='#7500ea')
@@ -118,8 +118,10 @@ html(lang="ru")
                         a.previews__link
                           +image(`${worksImages[i]}`, 'previews__pic')
                 .slider__buttons                  
-                  button.slider-buttons__item.slider-buttons__item--slide--prev >
-                  button.slider-buttons__item.slider-buttons__item--slide--next >
+                  button.slider-buttons__item.slider-buttons__item--slide--prev 
+                    +icon('arrow-down', 'slider-buttons__icon')
+                  button.slider-buttons__item.slider-buttons__item--slide--next.active
+                    +icon('arrow-down', 'slider-buttons__icon')
 
             .works__right
               .works__tags
@@ -162,8 +164,10 @@ html(lang="ru")
                             span.carusel__prof=caruselArr[index].prof
 
                 .carusel__buttons
-                  button.carusel__button.carusel__button-prev <
-                  button.carusel__button.carusel__button-next >
+                  button.carusel__button.carusel__button-prev
+                    +icon('arrow-down', 'carusel-buttons__icon')
+                  button.carusel__button.carusel__button-next
+                    +icon('arrow-down', 'carusel-buttons__icon')
         section.feedback
           .container
             h2.section-title.feedback__title Связаться со мной

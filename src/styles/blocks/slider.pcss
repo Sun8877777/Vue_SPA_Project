@@ -2,7 +2,6 @@
   position: relative;
   width: 977px;
   height: 600px;
-  overflow: hidden;
 }
 
 .slider__fillpic {
@@ -20,12 +19,22 @@
   width: 180px;
   height: 100px;
   overflow: hidden;
-  transition: 200ms;
+  transition: 500ms;
+  position: relative;
   &:hover {
-    outline: 3px solid $works-active;
+    cursor: pointer;
   }
   &--active {
     outline: 3px solid $works-active;
+  }
+  &:hover::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba($works-active, 0.3);
   }
 }
 
@@ -38,8 +47,6 @@
 .slider__buttons {
   position: absolute;
   background-color: $works-btn-bg;
-  width: 100px;
-  height: 50px;
   right: 0;
   bottom: 0;
   z-index: 5;
@@ -49,6 +56,8 @@
 
 
 .slider-buttons__item {
+  width: 50px;
+  height: 50px;
   background: none;
   border: none;
   font-weight: 600;
@@ -56,18 +65,30 @@
   opacity: 0.3;
   transition: 1s;
 }
-
+.slider-buttons__icon {
+  width: 20px;
+  height: 20px;
+  fill: white
+}
 .slider-buttons__item--slide--prev {
   transform: rotate(-90deg);
-  &:hover {
+  &.active {
     opacity: 1;    
+  }
+  &:hover {
+    opacity: 1;   
+    background-color: $hvr-violet; 
   }
 }
 
 
 .slider-buttons__item--slide--next {
   transform: rotate(90deg);
-  &:hover {
+  &.active {
     opacity: 1;    
+  }
+  &:hover {
+    opacity: 1;
+    background-color: $hvr-violet;    
   }
 }

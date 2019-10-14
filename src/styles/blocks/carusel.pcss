@@ -96,8 +96,27 @@
   border-radius: 50%;
   padding: 15px 20px;
   color: $text-color;
+  transition: 500ms;
+
+  &:hover {
+    background-color: $hvr-violet;
+    .carusel-buttons__icon {
+      fill: white;
+    }
+  }
 }
 
-.carusel__button-prev {}
+.carusel-buttons__icon {
+  width: 10px;
+  height: 10px;
+  fill: $text-color;
+  transition: 500ms;
+}
+
+.carusel__button-prev {
+  .carusel-buttons__icon {
+    transform: rotate(180deg)
+  }
+}
 
 .carusel__button-next {}
