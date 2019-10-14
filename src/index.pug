@@ -164,16 +164,19 @@ html(lang="ru")
                 .carusel__buttons
                   button.carusel__button.carusel__button-prev <
                   button.carusel__button.carusel__button-next >
-          section.feedback
-            h2.section-title Связаться со мной
+        section.feedback
+          .container
+            h2.section-title.feedback__title Связаться со мной
             .feedback__form
               form.main-form
-                label(for="feed-name") Введите ваше имя
+                .main-form__row
+                  label(for="feed-name" class="main-form__label") Введите ваше имя
                   input(type="text", name="feed-name" id="feed-name"  placeholder="Ковальчук Дмитрий")
-                label(for="feed-email") Введите ваш email
+                  label(for="feed-email" class="main-form__label") Введите ваш email
                   input(type="email", name="feed-email" id="feed-email" placeholder="loftschool@study.com")
-                label(for="feed-text")
-                  textarea(name="feed-text", id="feed-text") Требуется ваша помомощь в создании сайта. Интересуют сроки и цена вопроса
+                .main-form__row
+                label(for="feed-text" class="main-form__label")
+                    textarea(name="feed-text", id="feed-text") Требуется ваша помомощь в создании сайта. Интересуют сроки и цена вопроса
                 input(type="submit" id="feed-submit" value="Отправить")
       footer.footer
         .footer__wrapper
