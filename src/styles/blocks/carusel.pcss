@@ -56,6 +56,7 @@
 .carusel__avtor-info {
   display: flex;
   margin-top: auto;
+  align-items: flex-start;
 }
 
 .carusel__avtor {
@@ -74,7 +75,8 @@
 
 .carusel__avatar {
   width: 75px;
-  // object-fit: cover;
+  object-fit: cover;
+  object-position: top;
   height: 75px;
 }
 
@@ -100,6 +102,7 @@
 
   &:hover {
     background-color: $hvr-violet;
+
     .carusel-buttons__icon {
       fill: white;
     }
