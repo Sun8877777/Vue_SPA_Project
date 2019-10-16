@@ -1,0 +1,91 @@
+.skills-row:first-child {
+  padding-bottom: 24px;
+}
+
+.skills-row__title {
+  font-size: 24px;
+  padding-left: 21px;
+}
+
+.skills-row__list {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: 25px;
+  margin-top: 40px;
+
+  .skills-row__item {
+    margin-right: 37px;
+  }
+
+  .skills-row__item:last-child {
+    margin-right: 0;
+  }
+}
+
+
+
+.skill {
+  position: relative;
+  width: 166px;
+  height: 166px;
+
+  @include tablets {
+    width: 135px;
+    height: 135px;
+  }
+}
+
+.skill__circle {
+  fill: transparent;
+
+  &_under {
+    stroke: rgba(#fff, .3);
+    stroke-width: 10px;
+  }
+
+  &_above {
+    stroke-width: 5px;
+    stroke-dasharray: 251;
+    stroke-dashoffset: 100;
+    stroke: red;
+  }
+}
+
+.skill__circle-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-weight: bold;
+  font-size: 18px;
+  color: rgba(#fff, .5);
+  padding: 14px;
+
+  @include phones {
+    font-size: 16px;
+  }
+}
+
+.skill__circle {}
+
+.skill__circle--position--under {}
+
+.skill__shape {
+  width: 142px;
+  height: 142px;
+}
+
+.skill__title {
+  position: absolute;
+  top: 21%;
+  width: 58%;
+  height: 40%;
+  left: 15%;
+  font-size: 18px;
+  line-height: 30px;
+  text-align: center;
+  font-weight: 700;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

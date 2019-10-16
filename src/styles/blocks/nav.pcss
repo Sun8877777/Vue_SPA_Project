@@ -1,0 +1,27 @@
+.nav__list {
+  display: flex;
+  align-items: center;
+  margin-right: 7px;
+}
+
+.nav__item {
+  margin-right: 60px;
+
+  &:last-child {
+    margin-right: 0;
+  }
+}
+.nav__link {
+  text-decoration: none;
+  transition: 500ms;
+  display: block;
+  &:hover {
+    color: $hvr-violet;
+    // transform: skew(-15deg)
+  }
+}
+.nav__link--footer {
+    &:hover {
+      color: white
+    }
+  }

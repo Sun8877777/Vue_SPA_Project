@@ -1,0 +1,125 @@
+.carusel {}
+
+.carusel__wrapper {
+  // position: relative;
+}
+
+.carusel__list {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.carusel__item {
+  display: flex;
+  width: 33.3%;
+  margin-right: 10px;
+
+  &:last-child {
+    margin-right: 0;
+  }
+}
+
+.carusel__item-quote {
+  width: 22%;
+  padding: 2px 0 0 22px;
+  margin-right: 20px;
+}
+
+.carusel__item-icon {
+  width: 75px;
+  height: 75px;
+  fill: $quote-color;
+}
+
+.carusel__item-wrap {
+  width: 71%;
+  font-weight: 600;
+  display: flex;
+  flex-direction: column;
+}
+
+.carusel__text {
+  opacity: 0.5;
+  line-height: 30px;
+  padding-bottom: 22px;
+}
+
+.carusel__avtor-desc {
+  padding-top: 10px;
+}
+
+.carusel__prof {
+  opacity: 0.3;
+  font-weight: 600;
+}
+
+.carusel__avtor-info {
+  display: flex;
+  margin-top: auto;
+  align-items: flex-start;
+}
+
+.carusel__avtor {
+  font-weight: 700;
+  font-size: 18px;
+  padding-bottom: 13px;
+}
+
+.carusel__avatar-wrapper {
+  width: 75px;
+  height: 75px;
+  margin-right: 28px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.carusel__avatar {
+  width: 75px;
+  object-fit: cover;
+  object-position: top;
+  height: 75px;
+}
+
+.carusel__buttons {
+  position: absolute;
+  top: -10px;
+  left: 36%;
+  width: 132px;
+  height: 52px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.carusel__button {
+  background: transparent;
+  font-weight: 700;
+  border: 1px solid $text-color;
+  border-radius: 50%;
+  padding: 15px 20px;
+  color: $text-color;
+  transition: 500ms;
+
+  &:hover {
+    background-color: $hvr-violet;
+
+    .carusel-buttons__icon {
+      fill: white;
+    }
+  }
+}
+
+.carusel-buttons__icon {
+  width: 10px;
+  height: 10px;
+  fill: $text-color;
+  transition: 500ms;
+}
+
+.carusel__button-prev {
+  .carusel-buttons__icon {
+    transform: rotate(180deg)
+  }
+}
+
+.carusel__button-next {}

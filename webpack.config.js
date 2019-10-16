@@ -9,7 +9,7 @@ const TerserPlugin = require("terser-webpack-plugin");
 
 module.exports = (env, argv) => {
   const isProductionBuild = argv.mode === "production";
-  const publicPath = '/';
+  const publicPath = '/Vue_SPA_Project/';
 
   const pcss = {
     test: /\.(p|post|)css$/,
@@ -18,7 +18,7 @@ module.exports = (env, argv) => {
       "css-loader",
       "postcss-loader"
     ]
-  };
+  }; 
 
   const vue = {
     test: /\.vue$/,
@@ -107,7 +107,8 @@ module.exports = (env, argv) => {
     devServer: {
       historyApiFallback: true,
       noInfo: false,
-      overlay: true
+      overlay: true,
+      port: 9000
     },
     performance: {
       hints: false
