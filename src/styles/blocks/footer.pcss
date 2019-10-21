@@ -19,6 +19,12 @@
     padding-top: 50px;
     padding-bottom: 62px;
   }
+
+  @include phones {
+    flex-direction: column;
+    width: 100%;
+    padding: 52px 0 56px;
+  }
 }
 
 .footer__left {
@@ -58,6 +64,11 @@
   @include desktop {
     width: 60%;
   }
+
+  @include phones {
+    width: 100%;
+    padding-bottom: 34px;
+  }
 }
 
 .footer__author-name {
@@ -68,6 +79,10 @@
 
   @include tablets {
     padding-bottom: 16px;
+  }
+
+  @include phones {
+    padding-bottom: 6px;
   }
 }
 
@@ -92,8 +107,12 @@
   @include desktop {
     width: 75%;
   }
+
   @include tablets {
     width: 71%;
+  }
+  @include phones {
+    width: 100%;
   }
 }
 
@@ -102,6 +121,7 @@
 
   @include tablets {
     padding-bottom: 35px;
+
     & .nav__list {
       flex-flow: row wrap;
       align-items: center;
@@ -111,8 +131,33 @@
     & .nav__item {
       margin-right: 15.3%;
       padding: 0 0 12px 0;
+
       &:nth-child(4n) {
         margin-right: 0%;
+      }
+    }
+
+    & .nav__link {
+      font-size: 14px;
+    }
+  }
+
+  @include phones {
+    padding-bottom: 22px;
+    
+    & .nav__list {
+      flex-flow: row wrap;
+      align-items: center;
+      margin-right: 0;
+      padding-left: 0;
+    }
+
+    & .nav__item {
+      margin-right: 32.5%;
+      padding: 0 0 12px 0;
+
+      &:nth-child(2n) {
+        margin-right: 0;
       }
     }
 
@@ -130,11 +175,16 @@
   @include desktop {
     padding-left: 5px;
   }
+
   @include tablets {
     font-size: 14px;
     line-height: 24px;
     flex-direction: column;
     padding-left: 8px;
+  }
+  @include phones {
+    padding-left: 0px;
+    padding-right: 5%;
   }
 }
 
@@ -144,6 +194,7 @@
   @include desktop {
     width: 40%;
   }
+
   @include tablets {
     width: 100%;
   }
@@ -151,6 +202,7 @@
 
 .footer__info-text {
   padding-bottom: 22px;
+
   @include tablets {
     padding-bottom: 16px;
   }
@@ -159,6 +211,9 @@
 .footer__social {
   @include tablets {
     padding-bottom: 55px;
+  }
+  @include phones {
+    padding-bottom: 43px;
   }
 }
 
@@ -169,6 +224,7 @@
   @include desktop {
     width: 55.7%;
   }
+
   @include tablets {
     width: 100%;
     padding: 0 0 0 0;

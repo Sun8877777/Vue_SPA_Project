@@ -22,6 +22,13 @@
     width: 334px;
     margin-right: 20px;
   }
+  @include phones {
+    width: 100%;
+    margin-right: 0;
+    &:nth-child(2n) {
+      display: none;
+    }
+  }
   &:last-child {
     margin-right: 0;
   }
@@ -38,6 +45,9 @@
   }
   @include tablets {
     width: 12%;
+  }
+  @include phones {
+    display: none;
   }
 }
 
@@ -63,6 +73,10 @@
   @include tablets {
     width: 81%;
   }
+  @include phones {
+    width: 100%;
+    // padding: 0;
+  }
 }
 
 .carusel__text {
@@ -74,10 +88,16 @@
     line-height: 24px;
     padding-bottom: 25px;
   }
+  @include phones {
+    padding-bottom: 0px;
+  }
 }
 
 .carusel__avtor-desc {
   padding-top: 10px;
+  @include phones {
+    padding-top: 0px;
+  }
 }
 
 .carusel__prof {
@@ -102,6 +122,9 @@
     font-size: 16px;
     padding-bottom: 9px;
   }
+  @include phones {
+    padding-bottom: 5px;
+  }
 }
 
 .carusel__avatar-wrapper {
@@ -112,6 +135,10 @@
   overflow: hidden;
   @include tablets {
     margin-right: 20px;
+  }
+  @include tablets {
+    width: 50px;
+    height: 50px;
   }
 }
 
@@ -137,6 +164,10 @@
   @include tablets {
     left: 56.1%;
     top: -7px;
+  }
+  @include phones {
+    top: 12.5%;
+    left: 29%;
   }
   
 }

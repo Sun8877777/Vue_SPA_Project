@@ -8,6 +8,11 @@
     text-align: center;
     padding-bottom: 88px;
   }
+  @include phones {
+    font-size: 24px;
+    text-align: left;
+    padding-bottom: 86px;
+  }
 }
 
 .feedback__form {
@@ -19,5 +24,8 @@
   @include tablets {
     font-size: 14px;
     width: 100%;
+  }
+  @include phones {
+    padding-bottom: 30%;
   }
 }
