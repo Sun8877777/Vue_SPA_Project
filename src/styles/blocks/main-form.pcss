@@ -1,13 +1,24 @@
-.main-form {}
+.main-form {
+  @include tablets {
+    display: flex;
+    flex-direction: column;
+  }
+}
 
 .main-form__row {
   display: flex;
   flex-wrap: wrap;
   margin-bottom: 80px;
-
+  @include tablets {
+    margin-bottom: 75px;
+  }
   &:last-child {
     margin-bottom: 0;
     padding-bottom: 135px;
+    @include tablets {
+      align-self: center;
+      padding-bottom: 11.5%;
+    }
   }
 }
 
@@ -17,10 +28,16 @@
   border-bottom: 1px solid #000;
   width: 47%;
   position: relative;
+  @include tablets {
+    width: 48.5%;
+  }
 }
 
 .main-form__row:first-child .main-form__row-item:first-child {
   margin-right: 5.5%;
+  @include tablets {
+    margin-right: 2.8%;
+  }
 }
 
 .main-form__row:first-child .main-form__row-item:last-child {
@@ -37,7 +54,10 @@
 
   &:focus~label,
   &:valid~label {
-    top: -44px
+    top: -44px;
+    @include tablets {
+      top: -38px;
+    }
   }
 
   &:focus~.main-form__icon,
@@ -84,10 +104,15 @@
   line-height: 36px;
   font-weight: 700;
   padding: 5px;
-
+  @include tablets {
+    height: 64px;
+  }
   &:focus~label,
   &:valid~label {
-    top: -44px
+    top: -44px;
+    @include tablets {
+      top: -38px;
+    }
   }
 
   &:focus~.main-form__icon,
@@ -110,7 +135,9 @@
   color: white;
   margin-top: -20px;
   transition: background-image 0.5s ease;
-
+  @include tablets {
+    margin-top: -44px;
+  }
   &:hover {
     cursor: pointer;
     background-image: linear-gradient(90deg, rgb(187, 0, 255) 0%, rgb(138, 0, 255) 48%, rgb(89, 0, 255) 100%);

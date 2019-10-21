@@ -12,8 +12,16 @@
 .carusel__item {
   display: flex;
   width: 33.3%;
+  flex-wrap: wrap;
   margin-right: 10px;
-
+  @include desktop {
+    width: 43.5%;
+    margin-right: 27px;
+  }
+  @include tablets {
+    width: 334px;
+    margin-right: 20px;
+  }
   &:last-child {
     margin-right: 0;
   }
@@ -23,12 +31,28 @@
   width: 22%;
   padding: 2px 0 0 22px;
   margin-right: 20px;
+  @include desktop {
+    padding: 4px 0 0 0;
+    margin-right: 0px;
+    width: 19.5%;
+  }
+  @include tablets {
+    width: 12%;
+  }
 }
 
 .carusel__item-icon {
   width: 75px;
   height: 75px;
   fill: $quote-color;
+  @include desktop {
+    width: 68px;
+    height: 68px;
+  }
+  @include tablets {
+    width: 30px;
+    height: 30px;
+  }
 }
 
 .carusel__item-wrap {
@@ -36,12 +60,20 @@
   font-weight: 600;
   display: flex;
   flex-direction: column;
+  @include tablets {
+    width: 81%;
+  }
 }
 
 .carusel__text {
   opacity: 0.5;
   line-height: 30px;
   padding-bottom: 22px;
+  @include tablets {
+    font-size: 14px;
+    line-height: 24px;
+    padding-bottom: 25px;
+  }
 }
 
 .carusel__avtor-desc {
@@ -51,6 +83,9 @@
 .carusel__prof {
   opacity: 0.3;
   font-weight: 600;
+  @include tablets {
+    font-size: 14px;
+  }
 }
 
 .carusel__avtor-info {
@@ -63,6 +98,10 @@
   font-weight: 700;
   font-size: 18px;
   padding-bottom: 13px;
+  @include tablets {
+    font-size: 16px;
+    padding-bottom: 9px;
+  }
 }
 
 .carusel__avatar-wrapper {
@@ -71,6 +110,9 @@
   margin-right: 28px;
   border-radius: 50%;
   overflow: hidden;
+  @include tablets {
+    margin-right: 20px;
+  }
 }
 
 .carusel__avatar {
@@ -89,6 +131,14 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  @include desktop {
+    left: 45.1%;
+  }
+  @include tablets {
+    left: 56.1%;
+    top: -7px;
+  }
+  
 }
 
 .carusel__button {

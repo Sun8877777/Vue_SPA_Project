@@ -1,9 +1,30 @@
 .user-info {
   width: 40%;
   display: flex;
-  flex-direction: column;
+  flex-direction: column;  
   align-items: center;
   text-align: center;
+
+  @include desktop {
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    width: 80%;
+  }
+
+  @include tablets {
+    flex-direction: column;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 30%;
+  }
+  @include phones {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 30%;
+  }
 }
 
 .user-info__desc {
@@ -13,6 +34,31 @@
   width: 28%;
   text-indent: 11px;
   font-weight: 600;
+
+  @include desktop {
+    padding: 0;
+    text-align: right;
+    text-indent: 90px;
+    margin-right: 57px;
+  }
+
+  @include tablets {
+    font-size: 16px;
+    text-indent: 0;
+    margin: 0;
+    text-align: center;
+    text-indent: 9px;
+    padding: 2px 23px 18px 23px;
+  }
+  @include phones {
+    font-size: 14px;
+    line-height: 24px;
+    text-align: center;
+    text-indent: 9px;
+    padding: 0 25% 1.5%;
+    padding-bottom: 3px;
+    width: 100%;
+  }
 }
 
 
@@ -20,4 +66,27 @@
   font-size: 72px;
   line-height: 60px;
   font-weight: 800;
+
+  @include desktop {
+    width: 45%;
+    padding: 0;
+    text-align: left;
+  }
+
+  @include tablets {
+    font-size: 48px;
+    line-height: 48px;
+    width: 45%;
+    padding: 0;
+    text-align: left;
+  }
+
+  @include tablets {
+    margin: 0;
+  }
+  @include phones {
+    font-size: 36px;
+    width: 100%;
+    text-align: center;
+  }
 }

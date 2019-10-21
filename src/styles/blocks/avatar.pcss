@@ -3,8 +3,13 @@
   display: block;
   width: 200px;
   height: 200%;
+  max-width: 100%;
   overflow: hidden;
   border-radius: 50%;
+  @include tablets {
+    width: 170px;
+    
+  }
 }
 
 .avatar__pic {

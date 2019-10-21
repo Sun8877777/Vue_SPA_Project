@@ -1,9 +1,19 @@
 .triangles-down {
   display: flex;
   margin-top: 0px;
-  // color: $white;
+  // color: $white; 
   padding-bottom: 170px;
   background-color: transparent;
+  @include desktop {
+    padding-bottom: 142px;
+  }
+  @include tablets {
+    padding-bottom: 20.3%;
+  }
+  @include phones {
+    padding-bottom: -20px;
+  }
+
 }
 
 .triangles-down__item {
@@ -12,4 +22,13 @@
   height: 95px;
   fill: $white;
   background-color: transparent;
+  @include desktop {
+    height: 60px;
+  }
+  @include tablets {
+    height: 36px;
+  }
+  @include phones {
+    height: 20px;
+  }
 }

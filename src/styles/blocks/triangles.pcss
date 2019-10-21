@@ -3,6 +3,18 @@
   margin-top: -110px;
   color: #ffffff;
   padding-bottom: 150px;
+  @include desktop {
+    padding-bottom: 97px;
+  }
+  @include tablets {
+    margin-top: -60px;
+    margin-bottom: 15px;
+  }
+  @include phones {
+    margin-top: -30px;
+    margin-bottom: 0px;
+    padding-bottom: 26%;
+  }
 }
 
 .triangles__item {
@@ -10,4 +22,10 @@
   display: block;
   height: 110px;
   fill: currentColor;
+  @include tablets {
+    height: 60px;
+  }
+  @include phones {
+    height: 30px;
+  }
 }

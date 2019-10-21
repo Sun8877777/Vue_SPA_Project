@@ -15,13 +15,22 @@ html(lang="ru")
             header.header.hero__header
               .hero__logo
                 .logo ЧА
-              .hero__menu
-                nav.nav
+              .hero__menu                
+                nav.nav.nav--open.nav--close
+                  button.hero__menu-toggle(type="button")
                   - var menu = ['Главная', "Обо мне", "Навыки", "Работы", "Отзывы", "Связаться"]
                   ul.nav__list
                     each item in menu
                       li.nav__item
                         a(href="").nav__link #{item}
+                  .nav__social
+                    .social 
+                      - var icons = ['insta', 'vk', 'github']
+                      ul.socials
+                        each item, index in icons
+                          li.socials__item(class=`${index === 1 ? 'active' : ''}`)
+                            a(href="").socials__link
+                              +icon(`${item}`, 'socials__icon')
 
               .hero__links.social 
                 - var icons = ['insta', 'vk', 'github']
@@ -33,7 +42,7 @@ html(lang="ru")
 
             .hero__content
               .user-info
-                h1.user-info__desc Личный сайт вэб разработчика
+                h1.user-info__desc Личный сайт веб разработчика
                 .user-info__username Черемисин Александр
 
             .hero__btns
@@ -104,7 +113,7 @@ html(lang="ru")
                               .skill__title #{skill}                            
 
       section.works
-        .container
+        .container.works__container
           h2.section-title.works__title Мои работы
           .works__wrapper
             .works__left

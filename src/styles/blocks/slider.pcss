@@ -2,17 +2,42 @@
   position: relative;
   width: 977px;
   height: 600px;
+  z-index: 5;
+
+  @include desktop {
+    width: 626px;
+    height: 353px;
+    margin-left: -3px;
+  }
+
+  @include tablets {
+    margin-left: 1px;
+  }
+  @include phones {
+    width: 100vw;
+    height: 180px;
+  }
 }
 
 .slider__fillpic {
   width: 100%;
+  @include phones {
+    width: 100vw;
+  }
 }
 
 .slider__preview {
   position: absolute;
   right: 0;
   bottom: 52px;
-  z-index: 2;
+  z-index: 6;
+
+  @include desktop {
+    bottom: 0;
+  }
+  @include phones {
+    display: none;
+  }
 }
 
 .previews__item {
@@ -21,12 +46,29 @@
   overflow: hidden;
   transition: 500ms;
   position: relative;
+
+  @include desktop {
+    width: 180px;
+  }
+
+  @include tablets {
+    width: 178px;
+  }
+
+  &:first-child {
+    @include desktop {
+      display: none;
+    }
+  }
+
   &:hover {
     cursor: pointer;
   }
+
   &--active {
     outline: 3px solid $works-active;
   }
+
   &:hover::before {
     content: '';
     position: absolute;
@@ -49,9 +91,16 @@
   background-color: $works-btn-bg;
   right: 0;
   bottom: 0;
-  z-index: 5;
+  z-index: 6;
   display: flex;
   justify-content: space-around;
+
+  @include desktop {
+    bottom: -50px;
+  }
+  @include phones {
+    bottom: 0;
+  }
 }
 
 
@@ -65,30 +114,41 @@
   opacity: 0.3;
   transition: 1s;
 }
+
 .slider-buttons__icon {
   width: 20px;
   height: 20px;
-  fill: white
+  fill: white;
+
+  @include desktop {
+    width: 10px;
+    height: 10px;
+  }
 }
+
 .slider-buttons__item--slide--prev {
   transform: rotate(-90deg);
+
   &.active {
-    opacity: 1;    
+    opacity: 1;
   }
+
   &:hover {
-    opacity: 1;   
-    background-color: $hvr-violet; 
+    opacity: 1;
+    background-color: $hvr-violet;
   }
 }
 
 
 .slider-buttons__item--slide--next {
   transform: rotate(90deg);
+
   &.active {
-    opacity: 1;    
+    opacity: 1;
   }
+
   &:hover {
     opacity: 1;
-    background-color: $hvr-violet;    
+    background-color: $hvr-violet;
   }
 }

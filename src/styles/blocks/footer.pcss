@@ -1,5 +1,5 @@
 .footer {
-  background-color:  rgba($footer-bg-color, 0.9);
+  background-color: rgba($footer-bg-color, 0.9);
   color: white;
   line-height: 30px;
 }
@@ -9,12 +9,26 @@
   // justify-content: space-between;
   padding-top: 90px;
   padding-bottom: 95px;
+
+  @include desktop {
+    padding-bottom: 18px;
+    padding-top: 72px;
+  }
+
+  @include tablets {
+    padding-top: 50px;
+    padding-bottom: 62px;
+  }
 }
 
 .footer__left {
   display: flex;
   padding-top: 7px;
   margin-right: 2.1%;
+
+  @include desktop {
+    flex-direction: column;
+  }
 }
 
 .footer__copyright {
@@ -23,6 +37,15 @@
   margin-right: 58px;
   font-weight: 600;
   padding-top: 8px;
+
+  @include desktop {
+    padding-bottom: 27px;
+  }
+
+  @include tablets {
+    margin-right: 28px;
+    padding-bottom: 25px;
+  }
 }
 
 .footer__author-wrap {
@@ -31,6 +54,10 @@
   flex-wrap: wrap;
   overflow: hidden;
   width: 31%;
+
+  @include desktop {
+    width: 60%;
+  }
 }
 
 .footer__author-name {
@@ -38,39 +65,112 @@
   font-weight: 600;
   text-transform: uppercase;
   padding-bottom: 17px;
+
+  @include tablets {
+    padding-bottom: 16px;
+  }
 }
 
 .footer__author-text {
   width: 98%;
   text-indent: 5px;
+
+  @include desktop {
+    text-indent: 0;
+  }
+
+  @include tablets {
+    font-size: 14px;
+    line-height: 24px;
+    width: 100%;
+  }
 }
 
 .footer__right {
   width: 64%;
+
+  @include desktop {
+    width: 75%;
+  }
+  @include tablets {
+    width: 71%;
+  }
 }
 
 .footer__nav {
   padding-bottom: 54px;
+
+  @include tablets {
+    padding-bottom: 35px;
+    & .nav__list {
+      flex-flow: row wrap;
+      align-items: center;
+      margin-right: 7px;
+    }
+
+    & .nav__item {
+      margin-right: 15.3%;
+      padding: 0 0 12px 0;
+      &:nth-child(4n) {
+        margin-right: 0%;
+      }
+    }
+
+    & .nav__link {
+      font-size: 14px;
+    }
+  }
+
 }
 
 .footer__info-block {
   display: flex;
   justify-content: space-between;
+
+  @include desktop {
+    padding-left: 5px;
+  }
+  @include tablets {
+    font-size: 14px;
+    line-height: 24px;
+    flex-direction: column;
+    padding-left: 8px;
+  }
 }
 
 .footer__info-left {
   width: 35%;
+
+  @include desktop {
+    width: 40%;
+  }
+  @include tablets {
+    width: 100%;
+  }
 }
 
 .footer__info-text {
   padding-bottom: 22px;
+  @include tablets {
+    padding-bottom: 16px;
+  }
 }
 
 .footer__social {
-  // margin: 33px 0 0 12px;
+  @include tablets {
+    padding-bottom: 55px;
+  }
 }
 
 .footer__info-right {
   width: 48%;
   padding-left: 10px;
+
+  @include desktop {
+    width: 55.7%;
+  }
+  @include tablets {
+    width: 100%;
+    padding: 0 0 0 0;
+  }
 }

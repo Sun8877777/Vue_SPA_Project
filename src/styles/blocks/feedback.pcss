@@ -2,9 +2,22 @@
 
 .feedback__title {
   font-size: 36px;
-  padding-bottom: 134px;
+  padding-bottom: 135px;
+  @include tablets {
+    font-size: 30px;
+    text-align: center;
+    padding-bottom: 88px;
+  }
 }
 
 .feedback__form {
   width: 59%;
+  @include desktop {
+    width: 81.1%;
+    padding-bottom: 32px;
+  }
+  @include tablets {
+    font-size: 14px;
+    width: 100%;
+  }
 }
