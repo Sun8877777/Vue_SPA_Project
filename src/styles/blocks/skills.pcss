@@ -46,6 +46,7 @@
 
   .skills-row__item {
     margin-right: 5%;
+    padding-bottom: 10px;
     @include desktop {
       margin-right: 30px;
     }
@@ -84,15 +85,14 @@
   fill: transparent;
 
   &_under {
-    stroke: rgba(#fff, .3);
-    stroke-width: 10px;
+    stroke:rgba(#363636, 0.3);
+    stroke-width: 4px;
   }
 
   &_above {
-    stroke-width: 5px;
+    stroke-width: 10px;
     stroke-dasharray: 251;
     stroke-dashoffset: 100;
-    stroke: red;
   }
 }
 
@@ -110,10 +110,6 @@
     font-size: 16px;
   }
 }
-
-.skill__circle {}
-
-.skill__circle--position--under {}
 
 .skill__shape {
   width: 150px;

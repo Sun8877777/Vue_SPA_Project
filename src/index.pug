@@ -90,27 +90,36 @@ html(lang="ru")
           .values__right
             .values__desc
               p Этот сайт я сделал в рамках обучения в Школе онлайн образования LoftSchool. Чуть позже я освежу в нём свой контент. А пока посмотрите, как тут всё классно и красиво!
-            ul.user-skills
-              - 
-                var skills = [
-                  ['Front-end', ['HTML5', 'CSS3', 'Javascript', 'Jquery и vue.js']],
-                  ['Workflow', ['GIT', 'Terminal', 'Gulp', 'Webpack']],
-                ]
-              each item in skills 
-                li.user-skills__item.skills-row 
-                  h3.section-title.skills-row__title #{item[0]}
-                  ul.skills-row__list
-                    each skill in item[1]
-                      li.skills-row__item
-                        .skill
-                          .skill__shape                            
-                            svg(viewBox="0 0 100 100" style="fill: transparent;")
-                              circle(cx="50" cy="50" r="45" fill="transparent" stroke='#363636' stroke-width="4px")
-                              circle(cx="50" cy="50" r="45" stroke="url(#gradient)" transform="rotate(180 50 50)"  stroke-dasharray="251" :stroke-dashoffset="skill.percent" stroke-width="10px")
-                              linearGradient(id="gradient" x1="0%" y1="0%" x2="100%" y2="0")
-                                stop(offset="0%" stop-color='#5c10ec')
-                                stop(offset="100%" stop-color='#7500ea')
-                              .skill__title #{skill}                            
+            .values__widget
+              #skills-component
+                script(type="text/x-template")#skills-list
+                  .values__widget-container
+                    ul.user-skills
+                      pre {{skill}}
+                      li.user-skills__item(v-for="skill in skills" :key="skill.skillsGroup")
+                        skills-row( 
+                          :skill ="skill"
+                        )
+
+                script(type="text/x-template")#skills-row
+                  .skills-row 
+                    h3.section-title.skills-row__title {{skill.skillsGroup}}
+                    ul.skills-row__list
+                      li.skills-row__item(v-for="(skillPercent, skillName) in skill.skills")
+                        skill(
+                          :skill-name="skillName"
+                          :skill-percent="skillPercent"
+                        )
+
+                script(type="text/x-template")#skill          
+                  .skill                                               
+                    svg(viewBox="0 0 100 100").skill__shape 
+                      circle(cx="50" cy="50" r="45").skill__circle.skill__circle_under
+                      circle(cx="50" cy="50" r="45" stroke="url(#gradient)" transform="rotate(180 50 50)").skill__circle.skill__circle_above
+                      linearGradient(id="gradient" x1="0%" y1="0%" x2="100%" y2="0")
+                        stop(offset="0%" stop-color='#5c10ec')
+                        stop(offset="100%" stop-color='#7500ea')
+                    .skill__title {{skillName}}  
 
       section.works
         .container.works__container
@@ -227,3 +236,5 @@ html(lang="ru")
                 .footer__info-right.quote
                   .quote-text Всегда пишите код так, будто сопровождать его будет склонный к насилию психопат, который знает где вы живете
                   .quote-author Martin Golding
+
+include ./templates/entry.pug
