@@ -115,7 +115,7 @@ html(lang="ru")
                   .skill                                               
                     svg(viewBox="0 0 100 100").skill__shape 
                       circle(cx="50" cy="50" r="45").skill__circle.skill__circle_under
-                      circle(cx="50" cy="50" r="45" stroke="url(#gradient)" transform="rotate(180 50 50)").skill__circle.skill__circle_above
+                      circle(cx="50" cy="50" r="45"  ref="color-circle" stroke="url(#gradient)" transform="rotate(180 50 50)").skill__circle.skill__circle_above
                       linearGradient(id="gradient" x1="0%" y1="0%" x2="100%" y2="0")
                         stop(offset="0%" stop-color='#5c10ec')
                         stop(offset="100%" stop-color='#7500ea')

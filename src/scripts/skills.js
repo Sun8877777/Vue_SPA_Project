@@ -2,12 +2,26 @@ import Vue from "vue";
 
 const skill = {
   template: "#skill",
-  props: ["skillName", "skillPercent"]
+  props: ["skillName", "skillPercent"],
+  methods: {
+    drawColoredCircle() {
+      const circle = this.$refs["color-circle"];
+      const dashArray = parseInt(
+        getComputedStyle(circle).getPropertyValue("stroke-dasharray")
+      );
+      const percent = (dashArray / 100) * (100 - this.skillPercent);
+
+      circle.style.strokeDashoffset = percent;
+    }
+  },
+  mounted() {
+    this.drawColoredCircle();
+  }
 };
 
 const skillsRow = {
   template: "#skills-row",
-  components: {skill},
+  components: { skill },
   props: ["skill"]
 };
 
@@ -15,12 +29,12 @@ const skillsRow = {
 new Vue({
   el: "#skills-component",
   template: "#skills-list",
-  components: {skillsRow},
+  components: { skillsRow },
   data: {
     skills: []
   },
 
-  created () {
+  created() {
     this.skills = require('../data/skills.json');
   }
 });
