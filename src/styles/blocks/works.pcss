@@ -1,20 +1,28 @@
 .works {
-  padding-bottom: 120px;
+  padding-bottom: 168px;
+  margin-left: 4px;
   position: relative;
 
   @include desktop {
-    padding-bottom: 92px;
+    padding-bottom: 94px;
+    margin-left: 0px;
   }
+
   @include tablets {
     padding-bottom: 7%;
   }
+
   @include phones {
     padding-bottom: 12.5%;
   }
 }
+
 .works__container {
-  width: 100%;
+  @include tablets {
+    width: 100%;
+  }
 }
+
 .works__wrapper {
   display: flex;
   justify-content: center;
@@ -38,6 +46,7 @@
     text-indent: 0px;
     padding-bottom: 57px;
   }
+
   @include phones {
     font-size: 24px;
     text-align: center;
@@ -47,33 +56,39 @@
 
 .works__left {
   position: relative;
+
   @include tablets {
     padding-bottom: 14.6%;
   }
+
   @include phones {
     padding-bottom: 19%;
   }
 }
+
 .works__left::before {
-  content: "4";
+  content: attr(data-slide);
   position: absolute;
   font-size: 25rem;
   font-weight: 800;
-  top: -51px;
-  left: -65%;
+  top: -9%;
+  right: -16.5%;
   z-index: 1;
   color: #e6e6e6;
 
   @include desktop {
-    content: "2";
+    content: attr(data-slide);
     font-size: 300px;
-    top: -110px;
-    left: -160px;
+    top: -27%;
+    left: auto;
+    right: -19.5%;
   }
+
   @include tablets {
     top: -30%;
     left: 83%;
   }
+
   @include phones {
     content: "";
     display: none;
@@ -86,12 +101,15 @@
   margin-top: 2px;
 
   @include desktop {
-    margin-left: 10%;
+    margin-left: 0;
+    margin-right: 8%;
     margin-top: 3px;
   }
+
   @include tablets {
     margin-left: 0;
   }
+
   @include phones {
     margin: 0 8.5%;
     padding-bottom: 16%;
@@ -100,9 +118,12 @@
 
 .works__tags {
   padding-bottom: 36px;
+  margin-left: -2px;
+
   @include tablets {
     padding-bottom: 16px;
   }
+
   @include phones {
     padding-bottom: 20px;
   }
@@ -111,6 +132,7 @@
 .works__tags-list {
   display: flex;
   flex-wrap: wrap;
+
   @include tablets {
     justify-content: center;
   }
@@ -129,6 +151,7 @@
   &:last-child {
     margin-right: 0;
   }
+
   @include phones {
     font-size: 13px;
     padding: 12px 22px 12px 11px;
@@ -147,9 +170,11 @@
   line-height: 48px;
   font-weight: 700;
   padding-bottom: 30px;
+
   @include tablets {
     padding-bottom: 18px;
   }
+
   @include phones {
     font-size: 24px;
     line-height: 30px;
@@ -165,6 +190,7 @@
   width: 340px;
   padding-left: 3px;
   padding-bottom: 36px;
+
   @include tablets {
     font-size: 14px;
     line-height: 24px;
@@ -172,6 +198,7 @@
     margin: 0 auto;
     padding-bottom: 21px;
   }
+
   @include phones {
     width: 100%;
     text-align: left;
@@ -183,10 +210,12 @@
   display: flex;
   flex-wrap: wrap;
   align-items: center;
+
   @include tablets {
     justify-content: center;
     transform: translateX(-5px);
   }
+
   @include phones {
     justify-content: flex-start;
     transform: translateX(-3px);
@@ -206,6 +235,7 @@
   font-size: 18px;
   font-weight: 700;
   color: $blue-color-link;
+
   @include tablets {
     font-size: 14px;
   }

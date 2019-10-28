@@ -1,9 +1,13 @@
 .user {
   display: flex;
   flex-direction: column;
-  /* justify-content: center; */
   align-items: center;
   margin-top: 11px;
+  width: 78%;
+  margin-left: 20%;
+  @include desktop {
+    align-items: flex-start;
+  }
   @include tablets {
     margin-top: 14px;
   }
@@ -23,27 +27,32 @@
   }
 }
 .user__desc {
-  display: table;
-  align-self: flex-start;
+  // display: table;
+  // align-self: flex-start;
+  width: 100%;
+  // margin: 0 auto;
 }
 
 .user__desc-item {
-  display: table-row;
+  display: flex;
+  justify-content: space-around;
 }
 
 .user__desc-item>div {
-  display: table-cell;
   font-weight: 600;
+  width: 50%;
 }
 
 .user__desc-item>div:first-child {
   opacity: 0.3;
-  padding: 0 80px 18px 4px;
+  padding: 0 0% 1.125rem 9%;
+  width: 40%;
+
   @include desktop {
-    padding: 0px 82px 19px 0px;
+    padding: 0px 12% 19px 0px;
   }
   @include tablets {
-    padding: 0 41px 11px 0;
+    padding: 0 21px 11px 0;
   }
   @include phones {
     padding: 0 24% 4.5% 0;

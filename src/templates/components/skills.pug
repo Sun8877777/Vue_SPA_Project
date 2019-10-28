@@ -1,25 +1,25 @@
-//- script(type="text/x-template")#skills-list
-//-   .values__widget-container
-//-     pre {{ message }}
-//-     ul.user-skills
-//-       li.user-skills__item
-//-         skills-row( :skill="skill")
+script(type="text/x-template")#skills-list
+  ul.user-skills
+    li.user-skills__item(v-for="skill in skills" :key="skill.skillsGroup")
+      skills-row(:skill ="skill")
 
-//- script(type="text/x-template")#skills-row
-//-   .skills-row 
-//-     h3.section-title.skills-row__title
-//-     ul.skills-row__list
-      
-//-         li.skills-row__item
-//-           skill
+script(type="text/x-template")#skills-row
+  .skills-row 
+    h3.section-title.skills-row__title {{skill.skillsGroup}}
+    ul.skills-row__list
+      li.skills-row__item(v-for="(skillPercent, skillName) in skill.skills")
+        skill(
+          :skill-name="skillName"
+          :skill-percent="skillPercent"
+        )
 
-//- script(type="text/x-template")#skill          
-//-   .skill
-//-     .skill__shape                            
-//-       svg(viewBox="0 0 100 100" style="fill: transparent;")
-//-         circle(cx="50" cy="50" r="45" fill="transparent" stroke='#363636' stroke-width="4px")
-//-         circle(cx="50" cy="50" r="45" stroke="url(#gradient)" transform="rotate(180 50 50)"  stroke-dasharray="251" :stroke-dashoffset="skill.percent" stroke-width="10px")
-//-         linearGradient(id="gradient" x1="0%" y1="0%" x2="100%" y2="0")
-//-           stop(offset="0%" stop-color='#5c10ec')
-//-           stop(offset="100%" stop-color='#7500ea')
-//-         .skill__title #{skill}                    
+script(type="text/x-template")#skill          
+  .skill                      
+    .skill__shape                          
+      svg(viewBox="0 0 100 100")
+        circle(cx="50" cy="50" r="45").skill__circle.skill__circle_under
+        circle(cx="50" cy="50" r="45"  ref="color-circle" stroke="url(#gradient)" transform="rotate(180 50 50)").skill__circle.skill__circle_above
+        linearGradient(id="gradient" x1="0%" y1="0%" x2="100%" y2="0")
+          stop(offset="0%" stop-color='#5c10ec')
+          stop(offset="100%" stop-color='#7500ea')
+      .skill__title {{skillName}}  

@@ -1,7 +1,7 @@
 .skills-row:first-child {
-  padding-bottom: 40px;
+  padding-bottom: 32px;
   @include desktop {
-    padding-bottom: 45px;
+    padding-bottom: 34px;
   }
   @include tablets {
     padding-bottom: 48px;
@@ -114,6 +114,7 @@
 .skill__shape {
   width: 150px;
   height: 150px;
+  position: relative;
   @include tablets {
     width: 130px;
     height: 130px;
@@ -133,6 +134,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 1;
   @include desktop {
     left: 21%;
     top: 29%;

@@ -30,8 +30,10 @@ new Vue({
   el: "#skills-component",
   template: "#skills-list",
   components: { skillsRow },
-  data: {
-    skills: []
+  data() {
+    return {
+      skills: []
+    };
   },
 
   created() {

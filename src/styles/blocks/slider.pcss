@@ -1,7 +1,7 @@
 .slider {
   position: relative;
   width: 977px;
-  height: 600px;
+  height: 550px;
   z-index: 5;
 
   @include desktop {
@@ -29,14 +29,14 @@
 .slider__preview {
   position: absolute;
   right: 0;
-  bottom: 52px;
+  bottom: 0;
   z-index: 6;
 
   @include desktop {
     bottom: 0;
   }
   @include phones {
-    display: none;
+    // display: none;
   }
 }
 
@@ -67,6 +67,7 @@
 
   &--active {
     outline: 3px solid $works-active;
+    z-index: 10;
   }
 
   &:hover::before {
@@ -90,7 +91,7 @@
   position: absolute;
   background-color: $works-btn-bg;
   right: 0;
-  bottom: 0;
+  bottom: -50px;
   z-index: 6;
   display: flex;
   justify-content: space-around;
@@ -102,7 +103,6 @@
     bottom: 0;
   }
 }
-
 
 .slider-buttons__item {
   width: 50px;

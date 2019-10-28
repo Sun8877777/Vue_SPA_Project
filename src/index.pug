@@ -10,6 +10,11 @@ html(lang="ru")
   body
     .wrapper
       .welcome-section
+        .welcome-section__parallax.parallax
+          - var speed = [0.1, 0.14, 0.18, 0.18, 0.20, 0.15, 0.20]
+          - for (var i = 1; i <= 7; i++)
+            .parallax__layer(data-speed=`${speed[i]}` class=`parallax__layer--${i}`)
+              +image(`content/parallax/welkome-pl-${i}.png`, "parallax__pic")
         section.hero
           .container.hero__container
             header.header.hero__header
@@ -18,11 +23,34 @@ html(lang="ru")
               .hero__menu                
                 nav.nav
                   button.nav__toggle(type="button")
-                  - var menu = ['Главная', "Обо мне", "Навыки", "Работы", "Отзывы", "Связаться"]
+                  - 
+                    var menu = [{
+                      name: "Главная",
+                      move: "#"
+                    },
+                    {
+                      name: "Обо мне",
+                      move: "#about"
+                    },
+                    {
+                      name: "Навыки",
+                      move: "#skill-list"
+                    },
+                    {
+                      name: "Работы",
+                      move: "#works-list"
+                    },
+                    {
+                      name: "Отзывы",
+                      move: "#reviews-list"
+                    },{
+                      name:  "Связаться",
+                      move: "#feedbacks"
+                    }]
                   ul.nav__list
                     each item in menu
                       li.nav__item
-                        a(href="").nav__link #{item}
+                        a(href=`${item.move}`).nav__link #{item.name}
                   .nav__social
                     .social 
                       - var icons = ['insta', 'vk', 'github']
@@ -50,12 +78,13 @@ html(lang="ru")
               .scroll-down__icon-wrap
                 +icon("scroll", "scroll-down__icon")
 
-        section.about
+        section.about#about
           .container.about__container
             .about__left
               .user
                 .avatar.user__avatar
-                  +image("content/user.jpg", "avatar__pic")
+                  .avatar__wrapper
+                    +image("content/user.jpg", "avatar__pic")
                 ul.user__desc
                   - 
                     var items = [
@@ -68,7 +97,7 @@ html(lang="ru")
                       .user__key #{item[0]}
                       .user__value #{item[1]}
             .about__right
-              h4.about__prolog Привет, меня зовут
+              h4.about__prolog Привет, меня зовут 
               h2.about__title Черемисин Александр
               .about__text Я занимаюсь разработкой современных сайтов и приложений. Мне нравится делать интересные и современные проекты.
               .about__ps Этот сайт я сделал в рамках обучения в Школе онлайн образования LoftScool. Чуть позже я освежу в нём свой контент. А пока посмотрите как тут все классно и красиво!
@@ -80,7 +109,7 @@ html(lang="ru")
           polygon(points="0,110 1000,110 1000,0")
 
 
-      section.values
+      section.values#skill-list
         .container
           .values__title
             h2.section-title.values__title-text Чем я могу быть полезен вам
@@ -92,101 +121,25 @@ html(lang="ru")
               p Этот сайт я сделал в рамках обучения в Школе онлайн образования LoftSchool. Чуть позже я освежу в нём свой контент. А пока посмотрите, как тут всё классно и красиво!
             .values__widget
               #skills-component
-                script(type="text/x-template")#skills-list
-                  .values__widget-container
-                    ul.user-skills
-                      pre {{skill}}
-                      li.user-skills__item(v-for="skill in skills" :key="skill.skillsGroup")
-                        skills-row( 
-                          :skill ="skill"
-                        )
 
-                script(type="text/x-template")#skills-row
-                  .skills-row 
-                    h3.section-title.skills-row__title {{skill.skillsGroup}}
-                    ul.skills-row__list
-                      li.skills-row__item(v-for="(skillPercent, skillName) in skill.skills")
-                        skill(
-                          :skill-name="skillName"
-                          :skill-percent="skillPercent"
-                        )
-
-                script(type="text/x-template")#skill          
-                  .skill                                               
-                    svg(viewBox="0 0 100 100").skill__shape 
-                      circle(cx="50" cy="50" r="45").skill__circle.skill__circle_under
-                      circle(cx="50" cy="50" r="45"  ref="color-circle" stroke="url(#gradient)" transform="rotate(180 50 50)").skill__circle.skill__circle_above
-                      linearGradient(id="gradient" x1="0%" y1="0%" x2="100%" y2="0")
-                        stop(offset="0%" stop-color='#5c10ec')
-                        stop(offset="100%" stop-color='#7500ea')
-                    .skill__title {{skillName}}  
-
-      section.works
+      section.works#works-list
         .container.works__container
-          h2.section-title.works__title Мои работы
-          .works__wrapper
-            .works__left
-              .slider
-                +image('content/preview_my_works.jpg', 'slider__fillpic')
-                .slider__preview
-                  ul.previews
-                    - var worksImages = ['content/my_works_min-1.jpg','content/my_works_min-2.jpg','content/my_works_min-3.jpg','content/my_works_min-4.jpg']
-                    - for (var i = 0; i < worksImages.length; i++)
-                      li.previews__item(class=`${i === 3 ? 'previews__item--active' : ''}`)
-                        a.previews__link
-                          +image(`${worksImages[i]}`, 'previews__pic')
-                .slider__buttons                  
-                  button.slider-buttons__item.slider-buttons__item--slide--prev 
-                    +icon('arrow-down', 'slider-buttons__icon')
-                  button.slider-buttons__item.slider-buttons__item--slide--next.active
-                    +icon('arrow-down', 'slider-buttons__icon')
+          h2.section-title.works__title Мои работы                   
+          #slider-component
 
-            .works__right
-              .works__tags
-                - var tags = ['HTML', 'CSS', 'Javascript']          
-                  ul.works__tags-list 
-                    each tag in tags
-                      li.works__tags-item #{tag}
-              .works__text
-                h3.works__title-right Сайт школы образования
-                .works__desc-text
-                  p Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool! 2 месяца только самых тяжелых испытаний и бессонных ночей!
-                a.works__link
-                  +icon('link','works__link-icon')
-                  .works__link-text Посмотреть сайт
-        
       .group-about-me
         .triangles-down
           svg.triangles-down__item(viewBox="0 0 1000 75" preserveAspectRatio="none")
             polygon(points="0,0 1000,75 1000,-75")
           svg.triangles-down__item(viewBox="0 0 1000 75" preserveAspectRatio="none")
             polygon(points="0,75 0,0 1000,0")   
-        section.rewiews
-          .container
-            h2.section-title.rewiews__title Что обо мне говорят
-            .rewiews__carusel.carusel
-              .carusel__wrapper
-                ul.carusel__list
-                  - var caruselArr = [{name: 'Ковальчук Дмитрий', prof: 'Основатель Loftschool', avatar:'content/avatar_1.jpg', text: 'Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool! 4,5 месяца только самых тяжелых испытаний и бессонных ночей!'},                    {name: 'Владимир Сабанцев', prof: 'Преподаватель', avatar:'content/avatar_2.jpg', text: 'Этот код выдержит любые испытания. Только пожалуйста, не загружайте сайт на слишком старых браузерах'}]
-                  each key, index in caruselArr
-                    li.carusel__item
-                      .carusel__item-quote
-                        +icon('quote','carusel__item-icon')                      
-                      .carusel__item-wrap
-                        p.carusel__text=caruselArr[index].text
-                        .carusel__avtor-info
-                          .carusel__avatar-wrapper
-                            +image(`${caruselArr[index].avatar}`, 'carusel__avatar')
-                          .carusel__avtor-desc
-                            h4.carusel__avtor=caruselArr[index].name
-                            span.carusel__prof=caruselArr[index].prof
 
-                .carusel__buttons
-                  button.carusel__button.carusel__button-prev
-                    +icon('arrow-down', 'carusel-buttons__icon')
-                  button.carusel__button.carusel__button-next
-                    +icon('arrow-down', 'carusel-buttons__icon')
-        section.feedback
+        section.reviews#reviews-list
+          .container
+          
+            #reviews-component
+
+        section.feedback#feedbacks
           .container
             h2.section-title.feedback__title Связаться со мной
             .feedback__form
@@ -218,11 +171,11 @@ html(lang="ru")
             .footer__right
               .footer__nav
                 nav.nav
-                    - var menu = ['Главная', "Обо мне", "Навыки", "Работы", "Отзывы", "Связаться"]
-                    ul.nav__list
-                      each item in menu
-                        li.nav__item
-                          a(href="").nav__link.nav__link--footer #{item}
+                  - var menu = ['Главная', "Обо мне", "Навыки", "Работы", "Отзывы", "Связаться"]
+                  ul.nav__list
+                    each item in menu
+                      li.nav__item
+                        a(href="").nav__link.nav__link--footer #{item}
               .footer__info-block
                 .footer__info-left
                   .footer__info-text Этот сайт я сделал в рамках обучения в Школе онлайн образования Loftschool
@@ -237,4 +190,4 @@ html(lang="ru")
                   .quote-text Всегда пишите код так, будто сопровождать его будет склонный к насилию психопат, который знает где вы живете
                   .quote-author Martin Golding
 
-include ./templates/entry.pug
+      include ./templates/entry.pug

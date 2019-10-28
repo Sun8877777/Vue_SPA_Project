@@ -33,13 +33,15 @@
 .hero__menu {
   margin: 0 20px;
 
-  @include desktop {
-    flex: 1 0 auto;
-    margin: 0 7%;
-  }
+  // @include desktop {
+  //   flex: 1 0 auto;
+  //   margin: 0 7%;
+  //   width: 60%;
+  //   max-width: 100%;
+  //   margin-top: 6px;
+  // }
 
-  @include tablets {
-    // position: relative;
+  @include desktop {
     order: 3;
     flex: 0;
   }
@@ -55,8 +57,10 @@
   @include desktop {
     padding-top: 57px;
     padding-left: 6%;
+    flex: 0.93;
   }
   @include tablets {
+    flex: 1;
     padding: 0 0 0 0;
     padding-top: 14.5%;
   }
@@ -74,7 +78,7 @@
   align-items: flex-end;
 
   @include desktop {
-    padding: 3.5% 0 3%;
+    padding: 0 0 12.5%;
     transform: translate(23px)
   }
   @include tablets {
@@ -83,7 +87,7 @@
 }
 
 .hero__links {
-  @include tablets {
+  @include desktop {
     order: 2;
     margin-left: auto;
     width: 27.1%;

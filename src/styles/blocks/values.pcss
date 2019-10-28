@@ -7,26 +7,32 @@
 
 .values__title {
   padding-bottom: 54px;
+
   @include tablets {
     width: 41%;
     margin: 0 auto;
     padding: 0 0 0 55px;
   }
+
   @include phones {
     width: 100%;
     margin: 0 auto;
     padding: 0;
   }
 }
-.values__title-text  {
+
+.values__title-text {
   text-align: center;
+
   @include desktop {
     margin-left: -55px;
   }
+
   @include tablets {
     line-height: 36px;
     padding-bottom: 18px;
   }
+
   @include phones {
     font-size: 24px;
     text-align: left;
@@ -35,22 +41,24 @@
     padding-bottom: 15px;
   }
 }
+
 .values__wrapper {
   display: flex;
-  justify-content: center;
   margin: 0 auto;
   max-width: 1660px;
   width: 95%;
-  padding-bottom: 165px;
-  @include desktop {
-    max-width: 100%;
-    width: 100%;
-    padding-bottom: 123px;
-  }
+  padding-bottom: 120px;
+  width: 100%;
+  padding-bottom: 90px;
+  justify-content: flex-start;
+
+  @include desktop {}
+
   @include tablets {
     flex-direction: column-reverse;
     padding-bottom: 55px;
   }
+
   @include phones {
     padding-bottom: 0;
   }
@@ -59,9 +67,14 @@
 .values__left {
   width: 48%;
   margin-right: 30px;
+  max-width: 600px;
+  min-height: 675px;
+  margin-right: 0;
+
   @include desktop {
-    min-height: 675px;
+    max-width: 380px;
   }
+
   @include tablets {
     min-height: 30px;
     width: 100%;
@@ -70,6 +83,7 @@
     justify-content: center;
     align-items: center;
   }
+
   @include phones {
     margin-top: 11%;
   }
@@ -78,19 +92,23 @@
 .values__image {
   background-image: url('../images/content/backpack_1800.png');
   background-repeat: no-repeat;
-  max-width: 474px;
+  max-width: 585px;
   width: 100%;
   height: 100%;
   background-position: -47px 25px;
+
   @include desktop {
     background-position: -224px 44px;
+    max-width: 474px;
   }
+
   @include tablets {
     background-image: url('../images/content/backpack_768.png');
     background-position: 0 0;
     height: 300px;
     width: 38%;
   }
+
   @include phones {
     background-image: url('../images/content/backpack_320.png');
     background-position: 50% 0;
@@ -99,12 +117,19 @@
 }
 
 .values__right {
-  width: auto;
+  width: 62%;
+
+
+  @include desktop {
+    margin-left: 16px;
+  }
+
   @include tablets {
     width: 100%;
     margin: 0 5%;
   }
-  @include phones{
+
+  @include phones {
     width: 100%;
     margin: 0;
   }
@@ -113,21 +138,25 @@
 .values__desc {
   font-weight: 600;
   line-height: 30px;
-  width: 53%;
-  margin-left: 46px;
+  width: 73%;
+  margin-left: -5px;
+  padding-right: 5%;
   padding-bottom: 85px;
   opacity: 0.5;
+
   @include desktop {
     margin-left: -61px;
     width: 76%;
   }
-    @include tablets {
+
+  @include tablets {
     font-size: 14px;
     line-height: 24px;
     margin: 0 auto;
     padding: 0 13.5% 47px 2.5%;
     text-align: center;
   }
+
   @include phones {
     font-size: 14px;
     line-height: 24px;

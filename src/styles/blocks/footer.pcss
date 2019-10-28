@@ -11,7 +11,7 @@
   padding-bottom: 95px;
 
   @include desktop {
-    padding-bottom: 18px;
+    padding-bottom: 78px;
     padding-top: 72px;
   }
 
@@ -30,7 +30,7 @@
 .footer__left {
   display: flex;
   padding-top: 7px;
-  margin-right: 2.1%;
+  margin-right: 2.3%;
 
   @include desktop {
     flex-direction: column;
@@ -117,8 +117,10 @@
 }
 
 .footer__nav {
-  padding-bottom: 54px;
-
+  padding-bottom: 44px;
+  @include desktop {
+    // padding-bottom: 43px;
+  }
   @include tablets {
     padding-bottom: 35px;
 
@@ -126,6 +128,7 @@
       flex-flow: row wrap;
       align-items: center;
       margin-right: 7px;
+      margin-top: 0;
     }
 
     & .nav__item {
