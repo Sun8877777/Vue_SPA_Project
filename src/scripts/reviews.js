@@ -12,7 +12,7 @@ new Vue({
     return {
       reviews: [],
       flickityOptions: {
-        initialIndex: 2,
+        initialIndex: 1,
         prevNextButtons: false,
         pageDots: false
         // wrapAround: true

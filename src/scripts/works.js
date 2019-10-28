@@ -7,7 +7,17 @@ const thumbs = {
     reversedWorks() {
       return [...this.works].reverse();
     }
-  }
+  }//,
+  // methods: {
+  //   onSetItem(elem) {
+  //     let items =  elem.target.parentElement.children;
+  //     [].forEach.call(items, function(elem) {
+  //       elem.classList.remove('previews__item--active');  
+  //     });
+  //     elem.target.classList.add('previews__item--active');
+  //     console.log(this.currentIndex)
+  //   }
+  // }
 }
 
 const btns = {
@@ -76,13 +86,20 @@ new Vue({
           this.currentIndex--;
           break;
       }
+    },
+    onSetItem(elem) {
+      // let items =  elem.target.parentElement.children;
+      console.log(elem)
+      // [].forEach.call(items, function(elem) {
+      //   elem.classList.remove('previews__item--active');  
+      // });
+      // elem.target.classList.add('previews__item--active');
+      console.log(this.currentIndex)
     }
   },
   created() {
     const data = require('../data/works.json');
     this.works = this.makeArrayWithRequiredImages(data);
-
-    // this.currentWork = this.works[this.currentIndex];
   }
 
 })

@@ -5,6 +5,7 @@ script(type="text/x-template")#slider-container
       :current-work="currentWork"
       :current-index="currentIndex"
       @slide = "handleSlide"
+      @clickSlide ="onSetItem"
     )
     info(
       :current-work="currentWork"
@@ -16,7 +17,8 @@ script(type="text/x-template")#slider-display
       img.slider__fillpic(:src="currentWork.photo")
       thumbs(
         :works="works"
-        :current-work="currentWork" 
+        :current-work="currentWork"
+        @clickSlide="$emit('clickSlide', '$event')" 
       )
       btns(
         @slide = "$emit('slide', $event)"
@@ -27,7 +29,8 @@ script(type="text/x-template")#slider-thumbs
     ul.previews
       li.previews__item(v-for="(work, index) in reversedWorks"  
       :key="work.id" 
-      :class="{ 'previews__item--active': work.id == currentWork.id  }")
+      :class="{ 'previews__item--active': work.id == currentWork.id  }"
+      @click.prevent="$emit('clickSlide', 'event')")
         a.previews__link
           img.previews__pic(:src="work.photo")
 
