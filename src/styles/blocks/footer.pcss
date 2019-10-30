@@ -43,9 +43,9 @@
   margin-right: 58px;
   font-weight: 600;
   padding-top: 8px;
-
+  line-height: 1;
   @include desktop {
-    padding-bottom: 27px;
+    padding-bottom: 24px;
   }
 
   @include tablets {
@@ -111,6 +111,7 @@
   @include tablets {
     width: 71%;
   }
+
   @include phones {
     width: 100%;
   }
@@ -118,12 +119,25 @@
 
 .footer__nav {
   padding-bottom: 44px;
-    & .nav__list {
-      margin-top: 0; 
-    }
-  @include desktop {
-    // padding-bottom: 43px;
+
+  & .nav__list {
+    margin-top: 0;
   }
+
+  @include desktop {
+    padding-bottom: 40px;
+    margin-left: -3px;
+
+    & .nav__item {
+      margin-right: 7.5%;
+      padding: 0 0 12px 0;
+
+      &:last-child {
+        // margin-right: 0%;
+      }
+    }
+  }
+
   @include tablets {
     padding-bottom: 35px;
 
@@ -135,8 +149,9 @@
     }
 
     & .nav__item {
-      margin-right: 15.3%;
-      padding: 0 0 12px 0;
+      margin-right: 14.2%;
+      padding: 3px 0 10px 3px;
+
 
       &:nth-child(4n) {
         margin-right: 0%;
@@ -150,7 +165,7 @@
 
   @include phones {
     padding-bottom: 22px;
-    
+
     & .nav__list {
       flex-flow: row wrap;
       align-items: center;
@@ -174,6 +189,16 @@
 
 }
 
+.footer .nav {
+  & .nav__list {
+    @include desktop {
+      display: flex;
+      flex-direction: row;
+    }
+  }
+
+}
+
 .footer__info-block {
   display: flex;
   justify-content: space-between;
@@ -188,6 +213,7 @@
     flex-direction: column;
     padding-left: 8px;
   }
+
   @include phones {
     padding-left: 0px;
     padding-right: 5%;
@@ -218,6 +244,7 @@
   @include tablets {
     padding-bottom: 55px;
   }
+
   @include phones {
     padding-bottom: 43px;
   }

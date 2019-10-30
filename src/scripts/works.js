@@ -2,22 +2,26 @@ import Vue from "vue";
 
 const thumbs = {
   template: "#slider-thumbs",
-  props: ["works", "currentWork"],
+  props: ["works", "currentWork", "currentIndex"],
   computed: {
     reversedWorks() {
       return [...this.works].reverse();
     }
-  }//,
-  // methods: {
-  //   onSetItem(elem) {
-  //     let items =  elem.target.parentElement.children;
-  //     [].forEach.call(items, function(elem) {
-  //       elem.classList.remove('previews__item--active');  
-  //     });
-  //     elem.target.classList.add('previews__item--active');
-  //     console.log(this.currentIndex)
-  //   }
-  // }
+  },
+  methods: {
+    onSetItem(elem, evt) {
+      let index = elem;
+      let items = evt.target.parentElement.children;
+      [].forEach.call(items, function (item) {
+        if (item.classList.contains('previews__item--active')) {
+          item.classList.remove('previews__item--active');          
+        }
+        evt.target.classList.add('previews__item--active');
+      });
+      // this.currentIndex=index;
+      console.log(elem, evt)
+    }
+  }
 }
 
 const btns = {
@@ -26,7 +30,8 @@ const btns = {
 const display = {
   template: "#slider-display",
   components: { thumbs, btns },
-  props: ["works", "currentWork", "currentIndex"]
+  props: ["works", "currentWork", "currentIndex"],
+
 }
 
 const tags = {
@@ -48,7 +53,7 @@ const info = {
 new Vue({
   el: "#slider-component",
   template: "#slider-container",
-  components: { display, info },
+  components: { display, info, thumbs },
   data: () => ({
     works: [],
     currentWorks: {},
@@ -86,15 +91,6 @@ new Vue({
           this.currentIndex--;
           break;
       }
-    },
-    onSetItem(elem) {
-      // let items =  elem.target.parentElement.children;
-      console.log(elem)
-      // [].forEach.call(items, function(elem) {
-      //   elem.classList.remove('previews__item--active');  
-      // });
-      // elem.target.classList.add('previews__item--active');
-      console.log(this.currentIndex)
     }
   },
   created() {

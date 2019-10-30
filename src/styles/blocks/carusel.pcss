@@ -6,30 +6,7 @@
   
 }
 
-.carousel-cell {
-  display: flex;
-  width: 474px;
-  flex-wrap: wrap;
-  margin-right: 30px;
-  @include desktop {
-    width: 43.5%;
-    margin-right: 27px;
-  }
-  @include tablets {
-    width: 334px;
-    margin-right: 20px;
-  }
-  @include phones {
-    width: 100%;
-    margin-right: 0;
-    // &:nth-child(2n) {
-    //   display: none;
-    // }
-  }
-  // &:last-child {
-  //   margin-right: 0;
-  // }
-}
+
 
 .carusel__item-quote {
   width: 22%;
@@ -95,6 +72,9 @@
 
 .carusel__avtor-desc {
   padding-top: 10px;
+  @include tablets {
+    padding-top: 0px;
+  }
   @include phones {
     padding-top: 0px;
   }
@@ -135,8 +115,10 @@
   overflow: hidden;
   @include tablets {
     margin-right: 20px;
+    width: 75px;
+    height: 75px;
   }
-  @include tablets {
+  @include phones {
     width: 50px;
     height: 50px;
   }

@@ -1,8 +1,43 @@
 .carusel__wrapper .flickity-viewport {
-  width: 1007px;
+  width: 68%;
+  @include desktop {
+    width: 112%;
+    margin-left: -26%;
+  }
+  @include tablets {
+    width: 120%;
+    margin-left: -27%;
+  }
 }
 
 .carusel__wrapper .flickity-slider {
-  margin-left: -498px;
+  margin-left: -49%;
   width: calc(4 * 370px);
+  @include desktop {
+  margin-left: 0;
+  width: 1050px;
+  }
+  @include tablets {
+    width: 730px;
+  }
+}
+.carusel__wrapper .carousel-cell {
+  min-height: 215px;
+  display: flex;
+  width: 474px;
+  flex-wrap: wrap;
+  margin-right: 30px;
+  @include desktop {
+    min-width: 30%;
+    margin-right: 0;
+    width: 500px;
+  }
+  @include tablets {
+    width: 334px;
+    min-height: 185px;
+  }
+  @include phones {
+    width: 100%;
+    margin-right: 0;
+  }
 }

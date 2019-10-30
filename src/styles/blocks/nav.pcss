@@ -7,7 +7,7 @@
       top: 0;
       background-color: $white;
       height: 100vh;
-      width: 322px;
+      width: 30vw;
       padding-top: 29.5%;
       z-index: 3;
       font-weight: 600;
@@ -89,7 +89,7 @@
     font-size: 0;
     display: block;
     top: 7.5%;
-    right: 11%;
+    right: 30%;
     height: 24px;
     width: 24px;
     border: none;
@@ -107,7 +107,10 @@
       box-shadow: 0 8px 0 0 $text-color, 0 16px 0 0 $text-color;
       background-color: $text-color;
     }
-
+  @include tablets {
+      right: 5.5%;
+      top: 9.5%;
+    }
   }
 
   @include phones {
@@ -162,6 +165,7 @@
     &::after {
       transform: rotate(-45deg);
     }
+
   }
 
   @include phones {

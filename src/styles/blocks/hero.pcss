@@ -32,18 +32,12 @@
 
 .hero__menu {
   margin: 0 20px;
-
-  // @include desktop {
-  //   flex: 1 0 auto;
-  //   margin: 0 7%;
-  //   width: 60%;
-  //   max-width: 100%;
-  //   margin-top: 6px;
-  // }
-
   @include desktop {
-    order: 3;
+    order: 2;
     flex: 0;
+  }
+  @include tablets {
+    order: 3;
   }
 
 }
@@ -88,9 +82,13 @@
 
 .hero__links {
   @include desktop {
-    order: 2;
+    order: 3;
     margin-left: auto;
-    width: 27.1%;
+    width: 20%;
+  }
+  @include tablets {
+    order: 2;
+    margin-right: 15.2%;
   }
   @include phones {
     display: none;
