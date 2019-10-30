@@ -5,11 +5,16 @@
     padding-bottom: 12.5%;
   }
   @include phones {
-    padding-bottom: 45.3%;
+    padding-bottom: 146px;
   }
 }
 .reviews__header {
   display: flex;
+  @include phones {
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 26px;
+  }
 }
 .reviews__title {
   font-size: 36px;
@@ -27,8 +32,8 @@
   }
   @include phones {
     font-size: 24px;
+    padding: 25px 0 33px 0;
     
-    padding-bottom: 104px;
   }
 }
 .reviews__buttons {

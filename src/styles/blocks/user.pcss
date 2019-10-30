@@ -15,7 +15,9 @@
     width: 80%;
   }
   @include phones {
-    margin-top: 0;
+    margin: 0;
+    width: 100%;
+    align-items: center;
   }
 }
 .user__avatar {
@@ -25,7 +27,7 @@
   }
   @include phones {
     margin: 0;
-    margin-bottom: 26px
+    margin-bottom: 23px
   }
 }
 .user__desc {
@@ -36,7 +38,10 @@
   @include tablets {
     margin: 0 0 0 -5px;
     width: 110%;
-    
+  }
+  @include phones {
+    margin: 0;
+    width: 105%;
   }
 }
 
@@ -62,7 +67,7 @@
     padding: 0 21px 11px 0;
   }
   @include phones {
-    padding: 0 24% 4.5% 0;
+    padding: 0 24% 4% 0;
   }
   
 }

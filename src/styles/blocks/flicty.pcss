@@ -8,6 +8,10 @@
     width: 120%;
     margin-left: -27%;
   }
+  @include phones {
+    width: 100%;
+    margin-left: 0;
+  }
 }
 
 .carusel__wrapper .flickity-slider {
@@ -19,6 +23,9 @@
   }
   @include tablets {
     width: 730px;
+  }
+  @include phones {
+    width: 540px;
   }
 }
 .carusel__wrapper .carousel-cell {
@@ -37,7 +44,8 @@
     min-height: 185px;
   }
   @include phones {
-    width: 100%;
+    width: 260px;
     margin-right: 0;
+    min-height: 170px;
   }
 }
