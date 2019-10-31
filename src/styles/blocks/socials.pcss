@@ -5,7 +5,9 @@
 
 .socials__item {
   margin-right: 40px;
-
+  @include desktop {
+    // margin-right: 46px;
+  }
   &--footer {
     margin-right: 20px;
   }
@@ -20,7 +22,7 @@
   height: 28px;
   display: block;
   transition: 500ms;
-
+  fill:$text-color;
   &:hover {
     fill: $hvr-violet
   }

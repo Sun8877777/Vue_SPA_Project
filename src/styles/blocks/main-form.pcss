@@ -1,13 +1,37 @@
-.main-form {}
+.main-form {
+  @include tablets {
+    display: flex;
+    flex-direction: column;
+  }
+}
 
 .main-form__row {
   display: flex;
   flex-wrap: wrap;
   margin-bottom: 80px;
 
+  @include tablets {
+    margin-bottom: 75px;
+  }
+
+  @include phones {
+    &:first-child {
+      flex-direction: column;
+      padding-bottom: 13px;
+      & .main-form__row-item {
+        width: 100%;
+      }
+    }
+  }
+
   &:last-child {
     margin-bottom: 0;
     padding-bottom: 135px;
+
+    @include tablets {
+      align-self: center;
+      padding-bottom: 11.5%;
+    }
   }
 }
 
@@ -17,10 +41,22 @@
   border-bottom: 1px solid #000;
   width: 47%;
   position: relative;
+
+  @include tablets {
+    width: 48.5%;
+  }
 }
 
 .main-form__row:first-child .main-form__row-item:first-child {
   margin-right: 5.5%;
+
+  @include tablets {
+    margin-right: 2.8%;
+  }
+
+  @include phones {
+    margin-bottom: 72px;
+  }
 }
 
 .main-form__row:first-child .main-form__row-item:last-child {
@@ -37,7 +73,11 @@
 
   &:focus~label,
   &:valid~label {
-    top: -44px
+    top: -44px;
+
+    @include tablets {
+      top: -38px;
+    }
   }
 
   &:focus~.main-form__icon,
@@ -55,6 +95,10 @@
   width: 30px;
   height: 30px;
   opacity: .3;
+
+  @include phones {
+    display: none;
+  }
 }
 
 .main-form__label {
@@ -85,9 +129,20 @@
   font-weight: 700;
   padding: 5px;
 
+  @include tablets {
+    height: 64px;
+  }
+  @include phones {
+    height: 88px;
+  }
+
   &:focus~label,
   &:valid~label {
-    top: -44px
+    top: -44px;
+
+    @include tablets {
+      top: -38px;
+    }
   }
 
   &:focus~.main-form__icon,
@@ -110,6 +165,17 @@
   color: white;
   margin-top: -20px;
   transition: background-image 0.5s ease;
+
+  @include tablets {
+    margin-top: -44px;
+  }
+  @include phones {
+    font-size: 16px;
+    width: 80vw;
+    height: 60px;
+    border-radius: 30px 5px 30px 5px;
+    margin: -45px 0 0 -8px;
+  }
 
   &:hover {
     cursor: pointer;

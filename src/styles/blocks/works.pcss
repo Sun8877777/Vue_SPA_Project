@@ -1,44 +1,160 @@
 .works {
-  padding-bottom: 120px;
+  padding-bottom: 166px;
+  margin-left: 4px;
   position: relative;
+
+  @include desktop {
+    padding-bottom: 94px;
+    margin-left: 0px;
+  }
+
+  @include tablets {
+    padding-bottom: 7%;
+  }
+
+  @include phones {
+    padding-bottom: 12.5%;
+  }
+}
+
+.works__container {
+  @include phones {
+    width: 100%;
+  }
 }
 
 .works__wrapper {
   display: flex;
   justify-content: center;
+  @include desktop {
+    justify-content: space-between;
+
+  }
+  @include tablets {
+    flex-direction: column;
+  }
 }
 
 .works__title {
   font-size: 36px;
   padding-bottom: 98px;
+
+  @include desktop {
+    text-indent: -3px;
+    padding-bottom: 69px;
+  }
+
+  @include tablets {
+    font-size: 30px;
+    text-indent: 0px;
+    padding-bottom: 56px;
+  }
+
+  @include phones {
+    font-size: 24px;
+    text-align: center;
+    padding-bottom: 10.5%;
+  }
 }
 
-.works__left {}
-
-.works__right {
+.works__left {
   position: relative;
-  margin-left: 10.5%;
-  margin-top: 2px;
+  width: 66%;
+  @include desktop {
+    width: 58%;
+    height: 100%;
+  }
+  @include tablets {
+    padding-bottom: 14.6%;
+    width: 91%;
+  }
+
+  @include phones {
+    padding-bottom: 16%;
+  }
 }
 
-.works__right::before {
-  content: "4";
+.works__left::before {
+  content: attr(data-slide);
   position: absolute;
   font-size: 25rem;
   font-weight: 800;
-  top: -51px;
-  left: -65%;
+  top: -9%;
+  right: -18%;
   z-index: 1;
   color: #e6e6e6;
+
+  @include desktop {
+    content: attr(data-slide);
+    font-size: 300px;
+    top: -22%;
+    left: auto;
+    right: -4.5%;
+  }
+
+  @include tablets {
+    top: -23%;
+    left: auto;
+    right: -19%;
+  }
+
+  @include phones {
+    content: "";
+    display: none;
+  }
+}
+
+.works__right {
+  position: relative;
+    margin-left: 10.5%;
+    margin-top: 2px;
+    width: 25.5%;
+
+  @include desktop {
+    margin-left: 10%;
+    margin-right: 3%;
+    margin-top: 3px;
+    width: 347px;
+    min-width: 25%;
+  }
+
+  @include tablets {
+    margin-left: 0;
+    width: 100%;
+  }
+
+  @include phones {
+    margin: 0 8.5%;
+    padding-bottom: 16%;
+    width: 86%;
+  }
 }
 
 .works__tags {
-  padding-bottom: 36px;
+  padding-bottom: 31px;
+  margin-left: -2px;
+
+  @include tablets {
+    padding-bottom: 10px;
+  }
+
+  @include phones {
+    padding-bottom: 15px;
+  }
 }
 
 .works__tags-list {
   display: flex;
   flex-wrap: wrap;
+
+  @include tablets {
+    justify-content: center;
+  }
+  @include phones {
+    justify-content: flex-start;
+    margin-left: 2.5%;
+  }
+  
 }
 
 .works__tags-item {
@@ -46,6 +162,7 @@
   border-radius: 20px;
   font-weight: 700;
   margin-right: 15px;
+  margin-bottom: 5px;
   padding: 12px 20px;
   text-align: center;
   font-size: 15px;
@@ -54,31 +171,75 @@
   &:last-child {
     margin-right: 0;
   }
+
+  @include phones {
+    font-size: 13px;
+    padding: 12px 22px 12px 11px;
+  }
 }
 
-.works__text {}
+.works__text {
+  @include tablets {
+    text-align: center;
 
+  }
+}
 
 .works__title-right {
   font-size: 30px;
   line-height: 48px;
   font-weight: 700;
   padding-bottom: 30px;
+
+  @include tablets {
+    padding-bottom: 18px;
+  }
+
+  @include phones {
+    font-size: 24px;
+    line-height: 30px;
+    text-align: left;
+    padding-bottom: 15px;
+  }
 }
 
 .works__desc-text {
   opacity: 0.7;
   line-height: 30px;
   font-weight: 600;
-  width: 340px;
+  width: 99%;
   padding-left: 3px;
   padding-bottom: 36px;
+
+  @include tablets {
+    font-size: 14px;
+    line-height: 24px;
+    width: 65%;
+    margin: 0 auto;
+    padding-bottom: 21px;
+  }
+
+  @include phones {
+    width: 100%;
+    text-align: left;
+    padding-bottom: 26px;
+  }
 }
 
 .works__link {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
+
+  @include tablets {
+    justify-content: center;
+    transform: translateX(-5px);
+  }
+
+  @include phones {
+    justify-content: flex-start;
+    transform: translateX(-3px);
+  }
 }
 
 .works__link-icon {
@@ -94,4 +255,8 @@
   font-size: 18px;
   font-weight: 700;
   color: $blue-color-link;
+
+  @include tablets {
+    font-size: 14px;
+  }
 }

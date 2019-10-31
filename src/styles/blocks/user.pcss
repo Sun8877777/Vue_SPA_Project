@@ -1,28 +1,73 @@
 .user {
   display: flex;
   flex-direction: column;
-  /* justify-content: center; */
   align-items: center;
   margin-top: 11px;
+  width: 78%;
+  margin-left: 20%;
+  @include desktop {
+    margin-left: -16%;
+    width: 100%;
+  }
+  @include tablets {
+    margin: 14px 0 0 0;
+    align-items: flex-start;
+    width: 80%;
+  }
+  @include phones {
+    margin: 0;
+    width: 100%;
+    align-items: center;
+  }
 }
 .user__avatar {
   margin-bottom: 72px;
+  @include tablets {
+    margin: 0 0 52px 2px;
+  }
+  @include phones {
+    margin: 0;
+    margin-bottom: 23px
+  }
 }
 .user__desc {
-  display: table;
-  align-self: flex-start;
+  width: 100%;
+  @include desktop {
+    width: 88.5%;
+  }
+  @include tablets {
+    margin: 0 0 0 -5px;
+    width: 110%;
+  }
+  @include phones {
+    margin: 0;
+    width: 105%;
+  }
 }
 
 .user__desc-item {
-  display: table-row;
+  display: flex;
+  justify-content: space-around;
 }
 
 .user__desc-item>div {
-  display: table-cell;
   font-weight: 600;
+  width: 50%;
 }
 
 .user__desc-item>div:first-child {
   opacity: 0.3;
-  padding: 0 80px 18px 4px;
+  padding: 0 0% 1.125rem 9%;
+  width: 40%;
+
+  @include desktop {
+    padding: 0px 12% 19px 0px;
+  }
+  @include tablets {
+    padding: 0 21px 11px 0;
+  }
+  @include phones {
+    padding: 0 24% 4% 0;
+  }
+  
 }

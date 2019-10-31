@@ -3,6 +3,12 @@
 }
 .quote-text {
   padding-bottom: 18px;
+  @include tablets {
+    padding-bottom: 8px;
+  }
+  @include phones {
+    padding-bottom: 20px;
+  }
 }
 .quote-author {
   font-style: italic;
